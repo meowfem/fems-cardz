@@ -5,4 +5,4 @@ Currently content is very very limited, but with time I hope to flesh out this m
 
 This mod aims to stay on same level of balancing as a lot of the vanilla cards do, nothing that will make it too easy to win.
 
-To view added content, you can go to your mods list in-game, and click on the mod, and check the additions.
+Click [HERE](meowfem.github.io) to see a full list of content, or view the additions in the mods tab in-game.
