@@ -4,7 +4,7 @@
 --- MOD_AUTHOR: [fem]
 --- MOD_DESCRIPTION: adds silly cardz
 --- BADGE_COLOR: c7638f
---- PREFIX: fcards
+--- PREFIX: fcardz
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
@@ -46,19 +46,19 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.joker_main then
       return {
-        chips_mod = card.ability.extra.chips,
+        chip_mod = card.ability.extra.chips,
         message = localize {type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips}}
       }
     end
-    if context.before
-    and (context.other_card:get_id() < -10)
-    and context.cardarea == G.play then
-      card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.plusstone
-      return {
-        message = "Upgrade!",
-        color = G.C.CHIPS,
-        card = card
-      }
+    if context.individual and context.cardarea == G.play then
+      if context.other_card.ability.name == "Stone Card" then
+        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.plusstone
+        return {
+          extra = { focus = card, message = localize ('k_upgrade_ex') },
+          card = card,
+          colour = G.C.CHIPS,
+        }
+      end
     end
   end
 }
